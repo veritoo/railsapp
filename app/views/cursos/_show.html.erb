@@ -1,0 +1,11 @@
+<%- model_class = Curso -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<div class='curso'>
+  <p><%= @curso.id %></p>
+  <p><%= @curso.nombre %></p>
+  <p><%= @curso.ficha %></p>
+  <p id="pdf_link"><%= link_to "Download Invoice (PDF)", curso_path(@curso, :format => "pdf") %></p>
+</div>

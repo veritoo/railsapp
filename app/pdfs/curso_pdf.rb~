@@ -1,0 +1,8 @@
+class CursoPdf < Prawn::Document
+
+  def initialize(pais, view)
+    super()
+    text "#{pais.name}"
+  end
+end
+

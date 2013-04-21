@@ -1,0 +1,23 @@
+<%= simple_form_for(@horario, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+
+  <%= f.error_notification %>
+  <%= display_base_errors @horario %>
+
+  <%= f.input :dia %>
+  <%= f.input :hora %>
+  <%= f.input :aula %>
+
+  Instructor:
+   <%= f.collection_select :instructor_id, Instructor.all, :id, :nombres, prompt: "Instructor" %>
+   
+  Materia:
+   <%= f.collection_select :materia_id, Materia.all, :id, :nombre, prompt: "Materia" %>
+
+  Curso:
+   <%= f.collection_select :curso_id, Curso.all, :id, :nombre, prompt: "Curso" %>
+
+  <div class="form-actions">
+    <%= f.submit "guardar", :class => 'btn btn-primary' %>
+    <%= link_to 'Atras', horarios_path, :class => 'btn btn-small' %>
+  </div>
+<% end %>

@@ -1,0 +1,54 @@
+<br>
+<br>
+<div class="page-header">
+<center><h1>Cursos</h1></center>
+</div>
+<br />
+<br />
+<center>
+<%= form_tag request.path, :method => 'get' do %>
+<%= content_tag :label do %>
+Nombre Curso:
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Buscar", :name => nil, :class => 'btn btn-inverse btn-mini' %>
+<% end %>
+<% end %>
+<%= form_tag request.path, :method => 'get' do %>
+<%= content_tag :label do %>
+Numero de Registros:
+<%= text_field_tag :rgs, params[:rgs] %>
+<%= submit_tag "Consultar", :name => nil, :class => 'btn btn-inverse btn-mini' %>
+<% end %>
+<% end %>
+<br />
+<br />
+<br />
+</center>
+<table class="table table-striped table-bordered table-condensed pretty">
+  <thead>
+<tr>
+  <th><%= sortable "id" %></th>
+  <th><%= sortable "nombre" %></th>
+  <th><%= sortable "ficha" %></th>
+</tr>
+
+
+  </thead>
+  <tbody>
+     <%= render @cursos %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td><%= link_to 'Nuevo Curso',   new_curso_path, :class => "btn btn-mini btn-success", :remote => true %></td>
+    </tr>
+  </tfoot>
+</table>
+<br />
+<br />
+<div align="center">
+<%= will_paginate @cursos, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+&raquo;' rescue nil%>
+</div>
+<p>
+Total Cursos :<input type="text"  id="totalregs" class="span1" value="<%= @cursos.total_entries %>" readonly />
+</p>

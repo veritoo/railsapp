@@ -1,0 +1,25 @@
+<ul class="nav">
+<!-- if user_signed_in? %> -->
+<li>
+<li>
+<%= link_to('Cursos', cursos_path) %>
+</li>
+</li>
+<li>
+<%= link_to('Horarios', horarios_path) %>
+</li>
+<!-- else %> -->
+<li>
+<%= link_to('Instructores', instructores_path) %>
+</li>
+<!-- end %> -->
+<!-- if user_signed_in? %> -->
+<li>
+<%= link_to('Materias', materias_path) %>
+</li>
+<!-- else %> -->
+<li>
+<%= link_to('', "") %>
+</li>
+<!-- end %> -->
+</ul>
