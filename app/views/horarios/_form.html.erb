@@ -17,7 +17,7 @@
    <%= f.collection_select :curso_id, Curso.all, :id, :nombre, prompt: "Curso" %>
 
   <div class="form-actions">
-    <%= f.submit "guardar", :class => 'btn btn-primary' %>
-    <%= link_to 'Atras', horarios_path, :class => 'btn btn-small' %>
+    <%= f.submit "guardar", :class => 'btn btn-info' %>
+    <%= link_to 'Atras', horarios_path, :class => 'btn btn-inverse' %>
   </div>
 <% end %>
